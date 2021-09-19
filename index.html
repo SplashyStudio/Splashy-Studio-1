@@ -1,0 +1,17 @@
+<title>Splashy Studio 1.0</title>
+<img src="ss.jpg" width="600" height="600"><br><br>
+<b width="100" height="100">LOADING...</b>
+<style>
+body {
+    text-align: center;
+    font-family: "ＭＳ Ｐゴシック";
+}
+</style>
+<script>
+window.setTimeout(startup, 2000);
+function startup() {
+    if(window.location) {
+        window.location = 'ss.html' + window.location.hash;
+    }
+}
+</script>
