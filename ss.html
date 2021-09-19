@@ -4,6 +4,7 @@ body {
     font-family: "Consolas";
     color: white;
     text-align: center;
+    user-select: none;
 }
 #navBar {
     position: absolute;
@@ -13,7 +14,6 @@ body {
     top: 0;
     left: 0;
     -webkit-app-region: drag;
-    user-select: none;
     border-color: #00264d;
     border: 1px solid #00264d;
 }
@@ -196,10 +196,10 @@ body {
     <label for="penSize"><i class="fa fa-pencil"></i> Pen Size</label>
     <input type="range" name="penSize" id="penSize" value="10" step="1" min="1" max="100" onchange="penSizeChange(this.value)" style="cursor:move" title="Choose your pen size">
 </div><br>
-<a style="cursor:pointer;color:white;text-decoration:none;background:cornflowerblue;border-radius:10px;" download="myPainting.png">&nbsp;Save & Download&nbsp;</a>
-<a style="cursor:pointer;color:white;text-decoration:none;margin-left:10px;background:cornflowerblue;border-radius:10px" onclick="askIfYouWantToClear()">&nbsp;Clear Canvas&nbsp;</a><br><br>
+<a style="cursor:pointer;color:white;text-decoration:none;background:cornflowerblue;border-radius:10px" download="myPainting.png" title="Save It">&nbsp;Save & Download&nbsp;</a>
+<a style="cursor:pointer;color:white;text-decoration:none;margin-left:10px;background:cornflowerblue;border-radius:10px" onclick="askIfYouWantToClear()" title="Clear It">&nbsp;Clear Canvas&nbsp;</a><br><br>
 <div class="board">
-    <canvas width="500" height="500" style="background:white"></canvas>
+    <canvas width="500" height="500" style="background:white;cursor:none"></canvas>
 </div>
 <script>
 const colorCircle = document.querySelectorAll(".color-circle");
