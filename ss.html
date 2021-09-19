@@ -153,7 +153,7 @@ body {
 }
 </style>
 <nav id="navBar">
-    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1.0.1</b></div>
+    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1.1</b></div>
     <div id="togglers">
         <div id="minimize" title="Minimize" onclick="window.resizeTo(1300,725)">-</div>
         <div id="maximize" title="Maximize" onclick="window.resizeTo(2020,2020)">+</div>
@@ -261,6 +261,6 @@ const favoriteColor = (elem) => {
 document.querySelector("a").addEventListener('click', (event) => event.target.href = canvas.toDataURL());
 function askIfYouWantToClear() {
     alert("Are you sure you want to erase all your hard work and restart?");
-    window.location = 'index.html' + window.location.hash;
+    window.location = 'startup.html' + window.location.hash;
 }
 </script>
