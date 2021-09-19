@@ -11,6 +11,6 @@ function createWindow() {
             nodeIntegration: true
         }
     });
-    win.loadFile("index.html");
+    win.loadFile("startup.html");
 }
 app.whenReady().then(createWindow);
