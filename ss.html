@@ -45,111 +45,11 @@ body {
     padding-left: .5em;
     color: aqua;
 }
-.penTools {
-    margin: auto;
-}
-.drawingColors {
-    display: flex;
-}
-.colorCircle {
-    cursor: pointer;
-    border: 1px solid black;
-    width: 25px;
-    height: 25px;
-    margin-left: 5px;
-}
 .board {
     margin: auto;
 }
 .penSize {
     font-size: 15px;
-}
-.colorCircle:nth-child(2) {
-    background-color: #f44336;
-}
-.colorCircle:nth-child(3) {
-    background-color: #ff5722;
-}
-.colorCircle:nth-child(4) {
-    background-color: #ff9800;
-}
-.colorCircle:nth-child(5) {
-    background-color: #ffc107;
-}
-.colorCircle:nth-child(6) {
-    background-color: #ffeb3b;
-}
-.colorCircle:nth-child(7) {
-    background-color: #f0e68c;
-}
-.colorCircle:nth-child(8) {
-    background-color: #cddc39;
-}
-.colorCircle:nth-child(9) {
-    background-color: #8bc34a;
-}
-.colorCircle:nth-child(10) {
-    background-color: #4caf50;
-}
-.colorCircle:nth-child(11) {
-    background-color: #009688;
-}
-.colorCircle:nth-child(12) {
-    background-color: aqua;
-}
-.colorCircle:nth-child(13) {
-    background-color: #87ceeb;
-}
-.colorCircle:nth-child(14) {
-    background-color: #00bcd4;
-}
-.colorCircle:nth-child(15) {
-    background-color: #2196f3;
-}
-.colorCircle:nth-child(16) {
-    background-color: #0000ff;
-}
-.colorCircle:nth-child(17) {
-    background-color: #004466;
-}
-.colorCircle:nth-child(18) {
-    background-color: #3f51b5;
-}
-.colorCircle:nth-child(19) {
-    background-color: #673ab7;
-}
-.colorCircle:nth-child(20) {
-    background-color: #9900e6;
-}
-.colorCircle:nth-child(21) {
-    background-color: #9c27b0;
-}
-.colorCircle:nth-child(22) {
-    background-color: fuchsia;
-}
-.colorCircle:nth-child(23) {
-    background-color: #e91e63;
-}
-.colorCircle:nth-child(24) {
-    background-color: #994d00;
-}
-.colorCircle:nth-child(25) {
-    background-color: #ffcc99;
-}
-.colorCircle:nth-child(26) {
-    background-color: #c2c2c2;
-}
-.colorCircle:nth-child(27) {
-    background-color: #607d8b;
-}
-.colorCircle:nth-child(28) {
-    background-color: #616161;
-}
-.colorCircle:nth-child(29) {
-    background-color: white;
-}
-.colorCircle:nth-child(30) {
-    background-color: black;
 }
 </style>
 <nav id="navBar">
@@ -160,34 +60,6 @@ body {
         <div id="close" onclick="window.close()" title="Close">&times;</div>
     </div>
 </nav><br><br>
-<div id="penTools" class="penTools">
-    <div id="drawingColors" class="drawingColors"></div>
-    <button class="colorCircle" data-color="red" onclick="selectColor(this)" title="Red"></button>
-    <button class="colorCircle" data-color="deep-orange" onclick="selectColor(this)" title="Deep orange"></button>
-    <button class="colorCircle" data-color="orange" onclick="selectColor(this)" title="Orange"></button>
-    <button class="colorCircle" data-color="amber" onclick="selectColor(this)" title="Amber"></button>
-    <button class="colorCircle" data-color="yellow" onclick="selectColor(this)" title="Yellow"></button><br>
-    <button class="colorCircle" data-color="khaki-green" onclick="selectColor(this)" title="Khaki green"></button>
-    <button class="colorCircle" data-color="lime-green" onclick="selectColor(this)" title="Lime green"></button>
-    <button class="colorCircle" data-color="green" onclick="selectColor(this)" title="Green"></button>
-    <button class="colorCircle" data-color="medium-spring-green" onclick="selectColor(this)" title="Medium spring green"></button>
-    <button class="colorCircle" data-color="cyan" onclick="selectColor(this)" title="Cyan"></button><br>
-    <button class="colorCircle" data-color="teal" onclick="selectColor(this)" title="Teal"></button>
-    <button class="colorCircle" data-color="cornflower" onclick="selectColor(this)" title="Cornflower"></button>
-    <button class="colorCircle" data-color="blue" onclick="selectColor(this)" title="Blue"></button>
-    <button class="colorCircle" data-color="aqua" onclick="selectColor(this)" title="Aqua"></button>
-    <button class="colorCircle" data-color="indigo" onclick="selectColor(this)" title="Indigo"></button><br>
-    <button class="colorCircle" data-color="purple" onclick="selectColor(this)" title="Purple"></button>
-    <button class="colorCircle" data-color="violet" onclick="selectColor(this)" title="Violet"></button>
-    <button class="colorCircle" data-color="pink" onclick="selectColor(this)" title="Pink"></button>
-    <button class="colorCircle" data-color="flamingo" onclick="selectColor(this)" title="Flamingo"></button>
-    <button class="colorCircle" data-color="brown" onclick="selectColor(this)" title="Brown"></button><br>
-    <button class="colorCircle" data-color="grey" onclick="selectColor(this)" title="Grey"></button>
-    <button class="colorCircle" data-color="blue-grey" onclick="selectColor(this)" title="Blue grey"></button>
-    <button class="colorCircle" data-color="dark-grey" onclick="selectColor(this)" title="Dark grey"></button>
-    <button class="colorCircle" data-color="white" onclick="selectColor(this)" title="White"></button>
-    <button class="colorCircle" data-color="black" onclick="selectColor(this)" title="Black"></button>
-</div><br>
 <div id="favoritesContainer">
     <label for="favoriteColor">Favorite Color</label>
     <input type="color" name="favcolor" id="favcolor" value="#ffffff" onchange="favoriteColor(this)" style="cursor:help" title="Choose your favorite color">
@@ -199,8 +71,11 @@ body {
 <a style="cursor:pointer;color:white;text-decoration:none;background:cornflowerblue;border-radius:10px" download="myPainting.png" title="Save It">&nbsp;Save & Download&nbsp;</a>
 <a style="cursor:pointer;color:white;text-decoration:none;margin-left:10px;background:cornflowerblue;border-radius:10px" onclick="askIfYouWantToClear()" title="Clear It">&nbsp;Clear Canvas&nbsp;</a><br><br>
 <div class="board">
-    <canvas width="500" height="500" style="background:white;cursor:pointer"></canvas>
-</div>
+    <canvas width="500px" height="500px" style="background:white;cursor:none" id="paintingBoard"></canvas>
+</div><br>
+<a style="cursor:pointer;color:white;text-decoration:none;background:#0066cc;border-radius:10px" onclick="zoomCanvasIn()" title="Zoom Canvas In">&nbsp;+&nbsp;</a>
+<a style="cursor:pointer;color:white;text-decoration:none;background:#0066cc;border-radius:10px" onclick="zoomCanvasNormal()" title="Zoom Canvas To Normal Size">&nbsp;=&nbsp;</a>
+<a style="cursor:pointer;color:white;text-decoration:none;background:#0066cc;border-radius:10px" onclick="zoomCanvasOut()" title="Zoom Canvas Out">&nbsp;-&nbsp;</a>
 <script>
 const colorCircle = document.querySelectorAll(".color-circle");
 let penSize = 10;
@@ -262,5 +137,17 @@ document.querySelector("a").addEventListener('click', (event) => event.target.hr
 function askIfYouWantToClear() {
     alert("This will erase all your hard work and restart!");
     window.location = 'startup.html' + window.location.hash;
+}
+function zoomCanvasIn() {
+    document.getElementById("paintingBoard").style.width = "1000px";
+    document.getElementById("paintingBoard").style.height = "1000px";
+}
+function zoomCanvasNormal() {
+    document.getElementById("paintingBoard").style.width = "500px";
+    document.getElementById("paintingBoard").style.height = "500px";
+}
+function zoomCanvasOut() {
+    document.getElementById("paintingBoard").style.width = "250px";
+    document.getElementById("paintingBoard").style.height = "250px";
 }
 </script>
