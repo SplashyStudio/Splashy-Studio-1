@@ -53,22 +53,22 @@ body {
 }
 </style>
 <nav id="navBar">
-    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1.1</b></div>
+    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1.2</b></div>
     <div id="togglers">
-        <div id="minimize" title="Minimize" onclick="window.resizeTo(1300,725)">-</div>
-        <div id="maximize" title="Maximize" onclick="window.resizeTo(2020,2020)">+</div>
+        <div id="minimize" title="Minimize" onclick="window.resizeTo(1300,725); playClickSound();">-</div>
+        <div id="maximize" title="Maximize" onclick="window.resizeTo(2020,2020); playClickSound();">+</div>
         <div id="close" onclick="window.close()" title="Close">&times;</div>
     </div>
 </nav><br><br>
 <div id="favoritesContainer">
     <label for="favoriteColor">Favorite Color</label>
-    <input type="color" name="favcolor" id="favcolor" value="#ffffff" onchange="favoriteColor(this)" style="cursor:help" title="Choose your favorite color">
+    <input type="color" name="favcolor" id="favcolor" value="#ffffff" onchange="favoriteColor(this)" style="cursor:help" title="Choose your favorite color" onclick="playClickSound()">
 </div><br>
 <div id="penSize" class="penSize">
     <label for="penSize"><i class="fa fa-pencil"></i> Pen Size</label>
-    <input type="range" name="penSize" id="penSize" value="10" step="1" min="1" max="100" onchange="penSizeChange(this.value)" style="cursor:move" title="Choose your pen size">
+    <input type="range" name="penSize" id="penSize" value="10" step="1" min="1" max="100" onchange="penSizeChange(this.value)" style="cursor:move" title="Choose your pen size" onclick="playClickSound()">
 </div><br>
-<a style="cursor:pointer;color:white;text-decoration:none;background:cornflowerblue;border-radius:10px" download="myPainting.png" title="Save It">&nbsp;Save & Download&nbsp;</a>
+<a style="cursor:pointer;color:white;text-decoration:none;background:cornflowerblue;border-radius:10px" download="myPainting.png" title="Save It" onclick="playClickSound()">&nbsp;Save & Download&nbsp;</a>
 <a style="cursor:pointer;color:white;text-decoration:none;margin-left:10px;background:cornflowerblue;border-radius:10px" onclick="askIfYouWantToClear()" title="Clear It">&nbsp;Clear Canvas&nbsp;</a><br><br>
 <div class="board">
     <canvas width="500px" height="500px" style="background:white;cursor:none" id="paintingBoard"></canvas>
@@ -77,6 +77,9 @@ body {
 <a style="cursor:pointer;color:white;text-decoration:none;background:#0066cc;border-radius:10px" onclick="zoomCanvasNormal()" title="Zoom Canvas To Normal Size">&nbsp;=&nbsp;</a>
 <a style="cursor:pointer;color:white;text-decoration:none;background:#0066cc;border-radius:10px" onclick="zoomCanvasOut()" title="Zoom Canvas Out">&nbsp;-&nbsp;</a>
 <script>
+var click = new Audio();
+click.src = "click.wav";
+click.play();
 const colorCircle = document.querySelectorAll(".color-circle");
 let penSize = 10;
 let isDrawing;
@@ -141,13 +144,27 @@ function askIfYouWantToClear() {
 function zoomCanvasIn() {
     document.getElementById("paintingBoard").style.width = "1000px";
     document.getElementById("paintingBoard").style.height = "1000px";
+    var click = new Audio();
+    click.src = "click.wav";
+    click.play();
 }
 function zoomCanvasNormal() {
     document.getElementById("paintingBoard").style.width = "500px";
     document.getElementById("paintingBoard").style.height = "500px";
+    var click = new Audio();
+    click.src = "click.wav";
+    click.play();
 }
 function zoomCanvasOut() {
     document.getElementById("paintingBoard").style.width = "250px";
     document.getElementById("paintingBoard").style.height = "250px";
+    var click = new Audio();
+    click.src = "click.wav";
+    click.play();
+}
+function playClickSound() {
+    var click = new Audio();
+    click.src = "click.wav";
+    click.play();
 }
 </script>
