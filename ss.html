@@ -16,6 +16,7 @@ body {
     -webkit-app-region: drag;
     border-color: #00264d;
     border: 1px solid #00264d;
+    background: #00264d;
 }
 #togglers {
     display: block;
@@ -55,9 +56,49 @@ body {
 .penSize {
     font-size: 15px;
 }
+#zoomIn {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    background: #0066cc;
+    border-radius: 10px;
+}
+#zoomNormal {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    background: #0066cc;
+    border-radius: 10px;
+}
+#zoomOut {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    background: #0066cc;
+    border-radius: 10px;
+}
+#zoomIn:hover {background:#003366;color:lightgrey;}
+#zoomNormal:hover {background:#003366;color:lightgrey;}
+#zoomOut:hover {background:#003366;color:lightgrey;}
+#saveAndDownload {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    background: cornflowerblue;
+    border-radius: 10px;
+}
+#clearCanvas {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    background: cornflowerblue;
+    border-radius: 10px;
+}
+#saveAndDownload:hover {background:#0080ff;color:lightgrey;}
+#clearCanvas:hover {background:#0080ff;color:lightgrey;}
 </style>
 <nav id="navBar">
-    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1.3</b></div>
+    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1.4</b></div>
     <div id="togglers">
         <div id="minimize" title="Minimize" onclick="window.resizeTo(1300,725); playClickSound();">-</div>
         <div id="maximize" title="Maximize" onclick="window.resizeTo(2020,2020); playClickSound();">+</div>
@@ -72,14 +113,14 @@ body {
     <label for="penSize"><i class="fa fa-pencil"></i> Pen Size</label>
     <input type="range" name="penSize" id="penSize" value="10" step="1" min="1" max="100" onchange="penSizeChange(this.value)" style="cursor:move" title="Choose your pen size" onclick="playClickSound()">
 </div><br>
-<a style="cursor:pointer;color:white;text-decoration:none;background:cornflowerblue;border-radius:10px" download="myPainting.png" title="Save It" onclick="playClickSound()">&nbsp;Save & Download&nbsp;</a>
-<a style="cursor:pointer;color:white;text-decoration:none;margin-left:10px;background:cornflowerblue;border-radius:10px" onclick="askIfYouWantToClear()" title="Clear It">&nbsp;Clear Canvas&nbsp;</a><br><br>
+<a download="myPainting.png" title="Save It" onclick="playClickSound()" id="saveAndDownload">&nbsp;Save & Download&nbsp;</a>
+<a onclick="askIfYouWantToClear()" title="Clear It" id="clearCanvas">&nbsp;Clear Canvas&nbsp;</a><br><br>
 <div class="board">
     <canvas width="500px" height="500px" style="background:white;cursor:none" id="paintingBoard"></canvas>
 </div><br>
-<a style="cursor:pointer;color:white;text-decoration:none;background:#0066cc;border-radius:10px" onclick="zoomCanvasIn()" title="Zoom Canvas In">&nbsp;+&nbsp;</a>
-<a style="cursor:pointer;color:white;text-decoration:none;background:#0066cc;border-radius:10px" onclick="zoomCanvasNormal()" title="Zoom Canvas To Normal Size">&nbsp;=&nbsp;</a>
-<a style="cursor:pointer;color:white;text-decoration:none;background:#0066cc;border-radius:10px" onclick="zoomCanvasOut()" title="Zoom Canvas Out">&nbsp;-&nbsp;</a>
+<a onclick="zoomCanvasIn()" title="Zoom Canvas In" id="zoomIn">&nbsp;+&nbsp;</a>
+<a onclick="zoomCanvasNormal()" title="Zoom Canvas To Normal Size" id="zoomNormal">&nbsp;=&nbsp;</a>
+<a onclick="zoomCanvasOut()" title="Zoom Canvas Out" id="zoomOut">&nbsp;-&nbsp;</a>
 <script>
 const colorCircle = document.querySelectorAll(".color-circle");
 let penSize = 10;
