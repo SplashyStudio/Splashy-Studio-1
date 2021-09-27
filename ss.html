@@ -93,23 +93,81 @@ body {
     text-decoration: none;
     background: cornflowerblue;
     border-radius: 10px;
+    margin-left: 10px;
 }
 #saveAndDownload:hover {background:#0080ff;color:lightgrey;}
 #clearCanvas:hover {background:#0080ff;color:lightgrey;}
+#favoritesContainer:hover {color:lightgrey;cursor:help;}
+#penSize:hover {color:lightgrey;cursor:move;}
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 3px solid aqua;
+    border-radius: 50%;
+    position: absolute;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+    pointer-events: none;
+    animation: cursorAnimation1 .5s infinite alternate;
+}
+.cursor::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: 7px solid cornflowerblue;
+    border-radius: 50%;
+    opacity: .5;
+    top: -7px;
+    left: -7px;
+    animation: cursorAnimation2 .5s infinite alternate;
+}
+.expand {
+    animation: cursorAnimation3 .5s forwards;
+    border: 1px solid blue;
+}
+@keyframes cursorAnimation1 {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.75);
+    }
+}
+@keyframes cursorAnimation2 {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.5);
+    }
+}
+@keyframes cursorAnimation3 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
 </style>
 <nav id="navBar">
-    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1.4</b></div>
+    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1.5</b></div>
     <div id="togglers">
         <div id="minimize" title="Minimize" onclick="window.resizeTo(1300,725); playClickSound();">-</div>
         <div id="maximize" title="Maximize" onclick="window.resizeTo(2020,2020); playClickSound();">+</div>
         <div id="close" onclick="window.close()" title="Close">&times;</div>
     </div>
 </nav><br><br>
-<div id="favoritesContainer">
+<div id="favoritesContainer" title="Choose your favorite color">
     <label for="favoriteColor">Favorite Color</label>
     <input type="color" name="favcolor" id="favcolor" value="#ff0000" onchange="favoriteColor(this)" style="cursor:help" title="Choose your favorite color" onclick="playClickSound()">
 </div><br>
-<div id="penSize" class="penSize">
+<div id="penSize" class="penSize" title="Choose your pen size">
     <label for="penSize"><i class="fa fa-pencil"></i> Pen Size</label>
     <input type="range" name="penSize" id="penSize" value="10" step="1" min="1" max="100" onchange="penSizeChange(this.value)" style="cursor:move" title="Choose your pen size" onclick="playClickSound()">
 </div><br>
@@ -121,6 +179,7 @@ body {
 <a onclick="zoomCanvasIn()" title="Zoom Canvas In" id="zoomIn">&nbsp;+&nbsp;</a>
 <a onclick="zoomCanvasNormal()" title="Zoom Canvas To Normal Size" id="zoomNormal">&nbsp;=&nbsp;</a>
 <a onclick="zoomCanvasOut()" title="Zoom Canvas Out" id="zoomOut">&nbsp;-&nbsp;</a>
+<div class="cursor"></div>
 <script>
 const colorCircle = document.querySelectorAll(".color-circle");
 let penSize = 10;
@@ -209,4 +268,31 @@ function playClickSound() {
     click.src = "click.wav";
     click.play();
 }
+document.onkeyup = function(e) {
+    if(e.ctrlKey && e.which == 73) {
+        zoomCanvasIn();
+    }
+    if(e.ctrlKey && e.which == 78) {
+        zoomCanvasNormal();
+    }
+    if(e.ctrlKey && e.which == 79) {
+        zoomCanvasOut();
+    }
+    if(e.ctrlKey && e.which == 68) {
+        askIfYouWantToClear();
+    }
+}
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mosuemove', e => {
+    cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;");
+}
+document.addEventListener('click', () => {
+    cursor.classList.add("expand");
+    var click = new Audio();
+    click.src = "click.wav";
+    click.play();
+    setTimeout(() => {
+        cursor.classList.remove("expand");
+    }, 500);
+});
 </script>
