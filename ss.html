@@ -156,10 +156,10 @@ body {
 }
 </style>
 <nav id="navBar">
-    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1.5</b></div>
+    <div id="showTitle" style="margin-top:3px"><b>Splashy Studio 1&#46;5</b></div>
     <div id="togglers">
-        <div id="minimize" title="Minimize" onclick="window.resizeTo(1300,725); playClickSound();">-</div>
-        <div id="maximize" title="Maximize" onclick="window.resizeTo(2020,2020); playClickSound();">+</div>
+        <div id="minimize" title="Minimize" onclick="window.resizeTo(1300,725); playClickSound();">&#45;</div>
+        <div id="maximize" title="Maximize" onclick="window.resizeTo(2020,2020); playClickSound();">&#43;</div>
         <div id="close" onclick="window.close()" title="Close">&times;</div>
     </div>
 </nav><br><br>
@@ -168,7 +168,7 @@ body {
     <input type="color" name="favcolor" id="favcolor" value="#ff0000" onchange="favoriteColor(this)" style="cursor:help" title="Choose your favorite color" onclick="playClickSound()">
 </div><br>
 <div id="penSize" class="penSize" title="Choose your pen size">
-    <label for="penSize"><i class="fa fa-pencil"></i> Pen Size</label>
+    <label for="penSize">Pen Size</label>
     <input type="range" name="penSize" id="penSize" value="10" step="1" min="1" max="100" onchange="penSizeChange(this.value)" style="cursor:move" title="Choose your pen size" onclick="playClickSound()">
 </div><br>
 <a download="myPainting.png" title="Save It" onclick="playClickSound()" id="saveAndDownload">&nbsp;Save &amp; Download&nbsp;</a>
@@ -176,9 +176,9 @@ body {
 <div class="board">
     <canvas width="500px" height="500px" style="background:white;cursor:none" id="paintingBoard"></canvas>
 </div><br>
-<a onclick="zoomCanvasIn()" title="Zoom Canvas In" id="zoomIn">&nbsp;+&nbsp;</a>
-<a onclick="zoomCanvasNormal()" title="Zoom Canvas To Normal Size" id="zoomNormal">&nbsp;=&nbsp;</a>
-<a onclick="zoomCanvasOut()" title="Zoom Canvas Out" id="zoomOut">&nbsp;-&nbsp;</a>
+<a onclick="zoomCanvasIn()" title="Zoom Canvas In" id="zoomIn">&nbsp;&#43;&nbsp;</a>
+<a onclick="zoomCanvasNormal()" title="Zoom Canvas To Normal Size" id="zoomNormal">&nbsp;&#61;&nbsp;</a>
+<a onclick="zoomCanvasOut()" title="Zoom Canvas Out" id="zoomOut">&nbsp;&#45;&nbsp;</a>
 <div class="cursor"></div>
 <script>
 const colorCircle = document.querySelectorAll(".color-circle");
